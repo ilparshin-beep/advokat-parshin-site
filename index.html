@@ -226,66 +226,95 @@ line-height:0;
 
 
 /* ===== ДИПЛОМЫ И СЕРТИФИКАТЫ ===== */
-.documents-gallery{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:18px;
-  margin-top:35px;
+
+.documents-gallery {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 18px !important;
+  margin-top: 35px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
-.document-card{
-  background:#0b1c2b;
-  border:1px solid #ffffff18;
-  border-radius:12px;
-  overflow:hidden;
-  cursor:pointer;
-  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-  line-height:0;
+
+.document-card {
+  width: 100% !important;
+  max-width: 288px !important;
+  height: 220px !important;
+  background: #0b1c2b;
+  border: 1px solid #ffffff18;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  line-height: 0;
 }
-.document-card:hover{
-  transform:translateY(-4px);
-  border-color:#c99b43;
-  box-shadow:0 18px 38px rgba(0,0,0,.28);
+
+.document-card img {
+  display: block !important;
+  width: 100% !important;
+  height: 220px !important;
+  max-width: 100% !important;
+  object-fit: contain !important;
+  background: #fff;
 }
-.document-card img{
-  display:block;
-  width:100%;
-  height:150px;
-  object-fit:contain;
-  background:#fff;
+
+
+/* Увеличение по клику */
+
+.document-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10001;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(0,0,0,.9);
 }
-.document-modal{
-  position:fixed;
-  inset:0;
-  z-index:10001;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  padding:24px;
-  background:rgba(0,0,0,.9);
-  overflow:auto;
+
+.document-modal.active {
+  display: flex;
 }
-.document-modal.active{display:flex}
-.document-modal img{
-  display:block;
-  max-width:min(100%,1100px);
-  max-height:94vh;
-  width:auto;
-  height:auto;
-  border-radius:8px;
-  box-shadow:0 15px 60px rgba(0,0,0,.55);
+
+.document-modal img {
+  max-width: 95vw !important;
+  max-height: 90vh !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important;
 }
-.document-close{
-  position:fixed;
-  top:10px;
-  right:18px;
-  z-index:10002;
-  border:0;
-  background:transparent;
-  color:#fff;
-  font-size:44px;
-  line-height:1;
-  cursor:pointer;
+
+.document-close {
+  position: fixed;
+  top: 10px;
+  right: 18px;
+  z-index: 10002;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font-size: 44px;
+  cursor: pointer;
+
+/* ===== ТЕЛЕФОН ===== */
+
+@media (max-width: 700px) {
+
+  .documents-gallery {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+    max-width: 100% !important;
+  }
+
+  .document-card {
+    max-width: none !important;
+    height: 180px !important;
+  }
+
+  .document-card img {
+    height: 180px !important;
+  }
 }
+
 @media(max-width:700px){
   .documents-gallery{
     grid-template-columns:repeat(2,minmax(0,1fr));
